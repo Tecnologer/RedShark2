@@ -14,9 +14,10 @@ var songs = [{
     artist: "Ritchie Valens",
     album: "La Bamba",
     img: "http://www.notnowmusic.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/i/richie-valens-la-bamba-2cd.jpg",
+    src: "content/songs/Ritchie Valens/The Real Ritchie Valens - La Bamba.mp3",
     duration: {
         min: 2,
-        sec: 54
+        sec: 3
     }
 },{
     id: 1,
@@ -24,9 +25,10 @@ var songs = [{
     artist: "Roy Orbison",
     album: "Oh, Pretty Woman",
     img: "http://saludosmelomano.com/wp-content/uploads/2014/10/Roy-Orbison.jpg",
+    src: "content/songs/Roy Orbison/OH, PRETTY WOMEN - ROY ORBISON.mp3",
     duration: {
-        min: 3,
-        sec: 3
+        min: 2,
+        sec: 57
     }
 },{
     id: 2,
@@ -34,9 +36,10 @@ var songs = [{
     artist: "Ben E King",
     album: "Stand By Me",
     img: "http://ecx.images-amazon.com/images/I/61oVl-3FbTL.jpg",
+    src: "content/songs/Ben E King/Stand By Me Ben E King 1961.mp3",
     duration: {
         min: 2,
-        sec: 57
+        sec: 58
     }
 },{
     id: 3,
@@ -44,6 +47,7 @@ var songs = [{
     artist: "Israel \"IZ\" Kamakawiwoʻole",
     album: "Somewhere over the Rainbow",
     img: "https://pilgrin.files.wordpress.com/2012/08/israel_kamakawiwooleiz_somewhere_ove.jpg",
+    src: "content/songs/Israel IZ Kamakawiwoʻole/Somewhere over the Rainbow - Israel IZ Kamakawiwo-ole.mp3",
     duration: {
         min: 3,
         sec: 47

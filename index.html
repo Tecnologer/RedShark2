@@ -47,7 +47,7 @@
 	    <div flex-item="5" style="padding-left: 10px;">{{currentSong.duration.min | numberFixedLeft:2}}:{{currentSong.duration.sec | numberFixedLeft:2}}</div>
 	</div>
 	<div class="tc-black-10 p+" flex-container="row" flex-align="space-between center" flex-column="12" style="text-align: center;">
-	    <div flex-item="1"></div>    
+	    <div flex-item="1"><audio id="tagAudio" type="audio/mp3"></audio></div>    
 	    <div flex-item="6">
 	    	<i class="mdi mdi-play btn-ctrl" title="{{lang.lblPlay}}" ng-show="playing || stoped" ng-click="play()"></i>
 	    	<i class="mdi mdi-pause btn-ctrl" title="{{lang.lblPause}}" ng-show="!playing && !stoped" ng-click="pause()"></i>

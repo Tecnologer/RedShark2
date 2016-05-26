@@ -13,11 +13,13 @@ app.controller('ctrlBody', ['$scope', "fnc","$interval","cnx",
         }];
         $scope.songs = cnx.getSongs();
         $scope.songIndex = 0;
+        $scope.song=$scope.songs[$scope.songIndex];
 		$scope.stoped = true;
         $scope.currentSec = millisToMinutesAndSeconds(0);
         $scope.currentSecAux = 0;
         $scope.progress = 0;
-        
+        var audio = document.getElementById("tagAudio");
+
         $scope.language = $scope.cultures[0];
 
         $scope.$watch("language", function(current) {
@@ -35,7 +37,7 @@ app.controller('ctrlBody', ['$scope', "fnc","$interval","cnx",
             
         	$scope.playing=false;
         	$scope.stoped=false;
-
+            audio.play();
 	        _pgsTimer = $i(function() {
 	        	$scope.progress = ($scope.currentSecAux / mili)*100;
 	        	$scope.currentSecAux+=1000;
@@ -51,11 +53,13 @@ app.controller('ctrlBody', ['$scope', "fnc","$interval","cnx",
             $scope.playing=true;
             $scope.stoped=false;
         	$i.cancel(_pgsTimer);
+
+            audio.pause();
         };
 
         $scope.stop=function(){
         	$sf.clearInterval(_pgsTimer);
-        	$scope.currentSec = millisToMinutesAndSeconds(0);;
+        	$scope.currentSec = millisToMinutesAndSeconds(0);
         	$scope.currentSecAux = 0;
         	$scope.progress = 0;
             $scope.stoped=true;
@@ -79,6 +83,9 @@ app.controller('ctrlBody', ['$scope', "fnc","$interval","cnx",
             $scope.currentSecAux=mili*pos;
             $scope.progress = ($scope.currentSecAux / mili)*100;
             $scope.currentSec=millisToMinutesAndSeconds($scope.currentSecAux);
+            
+            audio.currentTime = mili / 1000;
+            audio.play();
 
             if(_pgsTimer)
                 $scope.play();
@@ -88,8 +95,17 @@ app.controller('ctrlBody', ['$scope', "fnc","$interval","cnx",
             $scope.currentSong = $scope.songs[i];
             $scope.stop();
 
-            if(_pgsTimer)
+            $scope.song=$scope.songs[$scope.songIndex];            
+        });
+
+        $scope.$watch("song", function(current) {
+            if (current && current.src) {                
+                audio.src = current.src;
+                audio.load();
+                audio.play();
+
                 $scope.play();
+            }
         });
     }
 ]);
