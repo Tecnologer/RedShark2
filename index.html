@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="redshark">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>RedShark</title>
+	<!-- Head -->
+	<link rel="stylesheet" href="bower_components/lumx/dist/lumx.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link href="node_modules/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="css/redshark.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+<body ng-controller="ctrlBody" ng-cloak>
+	<div class="tc-black-10 p+" flex-container="row" flex-align="space-between center" flex-column="12">
+		<div flex-item="1"></div>
+		<div flex-item="2">
+			<div class="p+ pt0">
+				 <lx-dropdown>
+			        <lx-dropdown-toggle>
+			            <lx-button>{{language.des}}</lx-button>
+			        </lx-dropdown-toggle>
+			 
+			        <lx-dropdown-menu>
+			            <ul>
+			                <li ng-repeat="cl in cultures">
+			                	<a class="dropdown-link" ng-click="setLanguage(cl)" ng-bind="cl.des"></a>
+			                </li>
+			            </ul>
+			        </lx-dropdown-menu>
+			    </lx-dropdown>
+		    </div>
+	    	<!-- <select ng-model="language" ng-options="cl.des for cl in cultures track by cl.code"></select> -->
+	    </div>
+	</div>
+	<div class="tc-black-10 p+" flex-container="row" flex-align="space-between center" flex-column="12">
+		<div flex-item="3">{{currentSong.name}}</div>
+		<div flex-item="3">{{currentSong.artist}}</div>
+		<div flex-item="3" >{{currentSong.album}}</div>
+		<div flex-item="3"><img ng-src="{{currentSong.img}}" width="100%"></div>
+	</div>
+	<div class="tc-black-10 p+" flex-container="row" flex-align="space-between center" flex-column="12">
+	    <div flex-item="1" style="text-align: right;padding-right: 10px;">{{currentSec}}</div>
+	    <div flex-item="6">
+		    <div class="play-progress-content" ng-click="setPositionTime($event)">
+		    	<div class="play-progress" ng-style="{width: progress+'%'}"></div>
+		    </div>
+	    </div>
+	    <div flex-item="5" style="padding-left: 10px;">{{currentSong.duration.min | numberFixedLeft:2}}:{{currentSong.duration.sec | numberFixedLeft:2}}</div>
+	</div>
+	<div class="tc-black-10 p+" flex-container="row" flex-align="space-between center" flex-column="12" style="text-align: center;">
+	    <div flex-item="1"></div>    
+	    <div flex-item="6">
+	    	<i class="mdi mdi-play btn-ctrl" title="{{lang.lblPlay}}" ng-show="playing || stoped" ng-click="play()"></i>
+	    	<i class="mdi mdi-pause btn-ctrl" title="{{lang.lblPause}}" ng-show="!playing && !stoped" ng-click="pause()"></i>
+	    	<i class="mdi mdi-skip-previous btn-ctrl" title="{{lang.lblPrevious}}" ng-click="changeSong(-1)"></i>
+	    	<i class="mdi mdi-stop btn-ctrl" title="{{lang.lblStop}}" ng-click="stop()"></i>
+	    	<i class="mdi mdi-skip-next btn-ctrl" title="{{lang.lblNext}}" ng-click="changeSong(1)"></i>
+	    </div>
+	    <div flex-item="5"></div>
+	</div>
+	<!-- Before body closing tag -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/velocity/velocity.js"></script>
+	<script src="bower_components/moment/min/moment-with-locales.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/lumx/dist/lumx.js"></script>
+	<script src="js/factories.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/redshark.js"></script>
+</body>
+</html>

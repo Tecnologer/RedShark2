@@ -1,0 +1,16 @@
+.btn-ctrl{
+	font-size: 200%;
+	cursor: pointer;
+}
+.play-progress-content{
+	width: 100%;
+	height: 15px;
+	background-color: #FFF;
+	padding-top: 2.3px;
+	cursor: pointer;
+}
+.play-progress{
+	width: 0%;
+	background-color: #009688;
+	height: 10px;
+}
