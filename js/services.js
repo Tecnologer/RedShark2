@@ -54,11 +54,11 @@ var songs = [{
     }
 },{
     id: 4,
-    name: "Grenade",
+    name: "01 Wollt ihr das Bett in Flammen sehen",
     artist: "Rammstein",
     album: "Somewhere over the Rainbow",
     img: "https://i.pinimg.com/originals/b8/5e/8a/b85e8ad5e406f883031d79ca30220c2c.jpg",
-    src: "content/songs/rammstein/Grenade.mp3",
+    src: "content/songs/rammstein/01 Wollt ihr das Bett in Flammen sehen.mp3",
     duration: {
         min: 3,
         sec: 43
