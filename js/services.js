@@ -57,10 +57,10 @@ var songs = [{
     name: "Grenade",
     artist: "Rammstein",
     album: "Somewhere over the Rainbow",
-    img: "https://pilgrin.files.wordpress.com/2012/08/israel_kamakawiwooleiz_somewhere_ove.jpg",
+    img: "https://i.pinimg.com/originals/b8/5e/8a/b85e8ad5e406f883031d79ca30220c2c.jpg",
     src: "content/songs/rammstein/Grenade.mp3",
     duration: {
         min: 3,
-        sec: 47
+        sec: 43
     }
 }];
